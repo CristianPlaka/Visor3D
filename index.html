@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Visor 3D</title>
+
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    body {
+      margin: 0;
+      background: #111;
+    }
+
+    model-viewer {
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+
+<model-viewer
+  id="visor"
+  camera-controls
+  auto-rotate
+  background-color="#111">
+</model-viewer>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const modelo = params.get("modelo");
+
+  const visor = document.getElementById("visor");
+
+  if (modelo) {
+    visor.src = modelo;
+  } else {
+    visor.src = "modelos/Espada.glb"; // modelo por defecto
+  }
+</script>
+
+</body>
+</html>
