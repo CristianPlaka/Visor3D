@@ -29,15 +29,18 @@
 </model-viewer>
 
 <script>
-  const params = new URLSearchParams(window.location.search);
-  const modelo = params.get("modelo");
-
   const visor = document.getElementById("visor");
 
+  const params = new URLSearchParams(window.location.search);
+  let modelo = params.get("modelo");
+
+  const baseURL = "https://cristianplaka.github.io/Visor3D/";
+
   if (modelo) {
-    visor.src = modelo;
+    modelo = decodeURIComponent(modelo);
+    visor.setAttribute("src", baseURL + modelo);
   } else {
-    visor.src = "modelos/Espada.glb"; // modelo por defecto
+    visor.setAttribute("src", baseURL + "modelos/Espada.glb");
   }
 </script>
 
