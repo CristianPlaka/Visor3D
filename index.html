@@ -34,13 +34,14 @@
   const params = new URLSearchParams(window.location.search);
   let modelo = params.get("modelo");
 
-  const baseURL = "https://cristianplaka.github.io/Visor3D/";
+  const baseURL = "https://cristianplaka.github.io/Visor3D/modelos/";
 
   if (modelo) {
     modelo = decodeURIComponent(modelo);
+    modelo = modelo.replace("modelos/", "");
     visor.setAttribute("src", baseURL + modelo);
   } else {
-    visor.setAttribute("src", baseURL + "modelos/Espada.glb");
+    visor.setAttribute("src", baseURL + "Espada.glb");
   }
 </script>
 
